@@ -9,23 +9,11 @@ const app = express();
 const Schema = mongoose.Schema;
 var db;
 
-// app.use(express.static(`${__dirname}/views`));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/client')));
 
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/twoTop/index.html`);
-});
 
-app.post('/reservation', (req, res) => {
-  db.collection('reservations').save(req.body, (err, result) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('saved to data base, BEEP BEEP');
-    res.redirect('/');
-  });
-});
+
 
 mongoose.connect(process.env.MONGODB,(err, database) => {
   if(err) {
@@ -37,4 +25,42 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
   })
 })
 
-module.exports = db;
+app.post('/reservation', (req, res) => {
+  new Reservation({
+    Name: req.body.name,
+    Time: req.body.time,
+    Guest_Count: req.body.count,
+    allergies: req.body.allergy,
+    spc_accommodations: req.body.spc_accommodations,
+  })
+    console.log('saved to data base, BEEP BEEP');
+    res.redirect('/');
+
+});
+
+
+const tableSchema = new Schema({
+  Name: String,
+  Time: Number,
+  Guest_Count: Number,
+  allergies: String,
+  spc_accommodations: String,
+});
+
+const Reservation = mongoose.model('Reservation', tableSchema);
+
+
+
+app.get(`/api/reservations`, (req, res) => {
+  Reservation
+    .find({}, function(err, data){
+      console.log(data, "THIS IS OUR DATA")
+      res.send(data);
+    })
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/client/index.html`);
+});
+
+module.exports = db, app;
