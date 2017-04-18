@@ -1,25 +1,17 @@
+const express = require('express');
 const env = require('dotenv').config();
 const PORT = process.env.PORT;
-const express = require('express');
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const path = require('path')
 const app = express();
 
 var db;
 
-
-
+// app.use(express.static(`${__dirname}/views`));
 app.use(bodyParser.urlencoded({extended: true}));
-
-// mongoose.connect(process.env.MONGODB);
-// db = mongoose.connection;
-// db.on('error', function(err){
-//   console.log('connection error', err);
-// });
-// db.once('open', function () {
-//   console.log(`MongoDB connection is live on ${PORT}`);
-// });
+app.use(express.static(path.join(__dirname, '/client')));
 
 mongoose.connect(process.env.MONGODB,(err, database) => {
   if(err) {
@@ -31,18 +23,20 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
   })
 })
 
+var tableSchema = new mongoose.Schema({
+  Name: String,
+  Time: Number,
+  Guest_Count: Number,
+  allergies: String,
+  spc_accommodations: String
+});
+var Table = mongoose.model('Table', tableSchema);
 
-// MongoClient.connect(process.env.MONGODB,(err, database) => {
-//   if(err) {
-//     return console.log(err);
-//   }
-//   db = database;
-//   app.listen(PORT, ()=>{
-//     console.log(`listening on ${PORT}`);
-//   })
-// })
 
-app.get('/', (req, res) => res.sendFile(`${__dirname}/twoTop/index.html`));
+
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/twoTop/index.html`);
+});
 
 app.post('/reservation', (req, res) => {
   db.collection('reservations').save(req.body, (err, result) => {
@@ -53,3 +47,5 @@ app.post('/reservation', (req, res) => {
     res.redirect('/');
   })
 })
+
+module.exports = Table;
