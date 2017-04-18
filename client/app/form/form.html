@@ -2,16 +2,15 @@
 <form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center">
   <input type="text" placeholder="name" name="name"><br>
   <label>Arrival Time</label>
-   <select id = "time">
-     <option value = "530">5:30</option>
-     <option value = "600">6:00</option>
-     <option value = "630">6:30</option>
-     <option value = "700">7:00</option>
-     <option value = "730">7:30</option>
-     <option value = "800">8:00</option>
+   <select id = "time" name = "time">
+     <option name = "time" value = "5:30">5:30</option>
+     <option name = "time" value = "6:00">6:00</option>
+     <option name = "time" value = "6:30">6:30</option>
+     <option name = "time" value = "7:00">7:00</option>
+     <option name = "time" value = "7:30">7:30</option>
+     <option name = "time" value = "8:00">8:00</option>
    </select><br>
   <input type="text" placeholder="guest count" name="count"><br>
-  <input type="text" placeholder="allergies" name="allergies"><br>
   <input type="radio" name="allergy" value="shellfish" checked> shellfish<br>
   <input type="radio" name="allergy" value="nut"> nut<br>
   <input type="radio" name="allergy" value="gluten"> gluten<br>

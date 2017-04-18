@@ -6,7 +6,7 @@ App.config(function ($routeProvider, $httpProvider) {
       templateUrl: 'app/form/form.html',
       controller: 'formController'
     })
-    .otherwise({ redirectTo: '/' });
+    .otherwise({ redirectTo: '/form' });
 });
 App.run(function() {
   console.log('ALRIIIIGHTY');
