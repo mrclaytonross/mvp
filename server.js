@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express();
-
+const Schema = mongoose.Schema;
 var db;
 
 // app.use(express.static(`${__dirname}/views`));
@@ -23,29 +23,4 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
   })
 })
 
-var tableSchema = new mongoose.Schema({
-  Name: String,
-  Time: Number,
-  Guest_Count: Number,
-  allergies: String,
-  spc_accommodations: String
-});
-var Table = mongoose.model('Table', tableSchema);
-
-
-
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/twoTop/index.html`);
-});
-
-app.post('/reservation', (req, res) => {
-  db.collection('reservations').save(req.body, (err, result) => {
-    if(err){
-      return console.log(err);
-    }
-    console.log('saved to data base, BEEP BEEP');
-    res.redirect('/');
-  })
-})
-
-module.exports = Table;
+module.exports = db;

@@ -1,16 +1,56 @@
-var App = angular.module('twoTopApp', ['ngRoute']);
+const App = angular.module('twoTopApp', ['twoTopApp.form', 'ngRoute']);
 
-App.config(function ($routeProvider) {
+App.config(function ($routeProvider, $httpProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: '../views/form.html',
-      controller: function(){}
+    .when('/form', {
+      templateUrl: 'app/form/form.html',
+      controller: 'formController'
     })
     .otherwise({ redirectTo: '/' });
 });
 App.run(function() {
   console.log('ALRIIIIGHTY');
 });
+
+// angular.module('shortly', [
+//   'shortly.services',
+//   'shortly.links',
+//   'shortly.shorten',
+//   'shortly.auth',
+//   'ngRoute'
+// ])
+// .config(function ($routeProvider, $httpProvider) {
+//   $routeProvider
+//     .when('/signin', {
+//       templateUrl: 'app/auth/signin.html',
+//       controller: 'AuthController'
+//     })
+//     .when('/signup', {
+//       templateUrl: 'app/auth/signup.html',
+//       controller: 'AuthController'
+//     })
+//     // Your code here
+//
+//     .when('/links', {
+//       templateUrl: 'app/links/links.html',
+//       controller: 'LinksController',
+//       authenticate: true
+//     })
+//     .when('/shorten', {
+//       templateUrl: 'app/shorten/shorten.html',
+//       controller: 'ShortenController',
+//       authenticate: true
+//     })
+//     .otherwise({
+//       redirectTo: '/links'
+//     });
+//
+//     // We add our $httpInterceptor into the array
+//     // of interceptors. Think of it like middleware for your ajax calls
+//   $httpProvider.interceptors.push('AttachTokens');
+// })
+
+
 // .mainController : function ($scope, $http) {
 //   $scope.formData = {};
 //   $http.get('/api/reservations')

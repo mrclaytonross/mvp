@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center">
+  <input type="text" placeholder="name" name="name"><br>
+  <label>Arrival Time</label>
+   <select id = "time">
+     <option value = "530">5:30</option>
+     <option value = "600">6:00</option>
+     <option value = "630">6:30</option>
+     <option value = "700">7:00</option>
+     <option value = "730">7:30</option>
+     <option value = "800">8:00</option>
+   </select><br>
+  <input type="text" placeholder="guest count" name="count"><br>
+  <input type="text" placeholder="allergies" name="allergies"><br>
+  <input type="radio" name="allergy" value="shellfish" checked> shellfish<br>
+  <input type="radio" name="allergy" value="nut"> nut<br>
+  <input type="radio" name="allergy" value="gluten"> gluten<br>
+  <input type="radio" name="allergy" value="vegetarian"> vegetarian<br>
+  <input type="radio" name="allergy" value="other"> other<br>
+  <input type="text" placeholder="special accommodations" name="spc_accommodations">
+  <button type="submit">{{hello}}</button>
+</form>
