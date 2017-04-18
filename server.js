@@ -13,6 +13,20 @@ var db;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/client')));
 
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/twoTop/index.html`);
+});
+
+app.post('/reservation', (req, res) => {
+  db.collection('reservations').save(req.body, (err, result) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('saved to data base, BEEP BEEP');
+    res.redirect('/');
+  });
+});
+
 mongoose.connect(process.env.MONGODB,(err, database) => {
   if(err) {
     return console.log(err);
