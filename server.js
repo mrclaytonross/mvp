@@ -24,19 +24,6 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
   })
 })
 
-
-
-// app.post('/reservation', (req, res) => {
-//   console.log(res, "RESSSSSSS sucka");
-//   db.collection('Reservation').save(req.body, (err, result) => {
-//     if (err) {
-//       return console.log(err);
-//     }
-//     console.log('saved to data base, BEEP BEEP');
-//     res.redirect('/');
-//   });
-// });
-
 const tableSchema = new Schema({
   Name: String,
   Time: String,

@@ -6,9 +6,6 @@ angular.module('twoTopApp.services', [])
       method: 'GET',
       url: `/api/reservations`,
     });
-    // .then(function (resp) {
-    //   return resp.data;
-    // });
   };
   const addOne = function (table) {
     return $http({
