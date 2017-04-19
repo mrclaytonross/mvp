@@ -62,13 +62,26 @@ app.get('/reservation', (req, res) => {
       console.log(data, "THIS IS OUR DATA")
       res.send(data);
     })
-// (err, result) => {
-//       if (err) {
-//         return console.log(err);
-//       }
-//     console.log('serving up guest info');
-//     res.redirect('/');
-//   });
+});
+
+app.delete('/cancel', (req, res) => {
+  var q = req.query.guest;
+  console.log(q, "looking for this")
+  Reservation
+    .remove({Name:q}, function(err, data){
+      console.log(data, "THIS IS OUR DATA")
+      res.send(data);
+    })
+});
+
+app.put('/edit', (req, res) => {
+  var q = req.query.guest;
+  console.log(q, "looking for this")
+  Reservation
+    .remove({Name:q}, function(err, data){
+      console.log(data, "THIS IS OUR DATA")
+      res.send(data);
+    })
 });
 
 

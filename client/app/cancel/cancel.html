@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1>bookings</h1>
+<h1>cancel a reservation</h1>
 <form class="col-sm-8 col-sm-offset-2 text-center"
       ng-submit="onSubmit(theForm.$valid)"
       name="theForm"
@@ -10,7 +10,7 @@
       'has-success':theForm.guest.$valid
     }
   ">
-  <label for="Name" >find reservation by name</label>
+  <label for="Name" >cancel reservation by name</label>
     <input type="text"
            class="form-control"
            ng-model="formModel.Name"
@@ -27,44 +27,3 @@
     </button>
   </div>
 </form>
-
-<div>
-  this should be results
-  {{
-
-searchResult
-
-  }}
-</div>
-
-
-<ul>
-  <li ng-repeat= "book in books">
-    <table>
-      <tbody><tr>
-        <th>Table {{book.TableID}}</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>Time</td>
-        <td>{{book.Time}}</td>
-      </tr>
-      <tr>
-        <td>Guest Count</td>
-        <td>{{book.Guest_Count}}</td>
-      </tr>
-      <tr>
-        <td>Guest Name</td>
-        <td>{{book.Name}}</td>
-      </tr>
-      <tr>
-        <td>Allergies</td>
-        <td>{{book.allergies}}</td>
-      </tr>
-      <tr>
-        <td>Requests</td>
-        <td>{{book.spc_accommodations}}</td>
-      </tr>
-    </tbody></table>
-  </li>
-</ul>

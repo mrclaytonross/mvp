@@ -1,4 +1,4 @@
-const App = angular.module('twoTopApp', ['twoTopApp.form', 'ngRoute', 'twoTopApp.services', 'twoTopApp.books']);
+const App = angular.module('twoTopApp', ['twoTopApp.form', 'ngRoute', 'twoTopApp.services', 'twoTopApp.books', 'twoTopApp.cancel', 'twoTopApp.edit']);
 
 App.config(function ($routeProvider, $httpProvider) {
   $routeProvider
@@ -9,6 +9,14 @@ App.config(function ($routeProvider, $httpProvider) {
     .when('/books', {
       templateUrl: 'app/books/books.html',
       controller: 'booksController',
+    })
+    .when('/cancel', {
+      templateUrl: 'app/cancel/cancel.html',
+      controller: 'cancelController',
+    })
+    .when('/edit', {
+      templateUrl: 'app/edit/edit.html',
+      controller: 'editController',
     })
     .otherwise({ redirectTo: '/form' });
 });
