@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
 })
 
 const tableSchema = new Schema({
+  Table: String,
   Name: String,
   Time: String,
   Guest_Count: Number,
@@ -36,6 +37,7 @@ const Reservation = mongoose.model('Reservation', tableSchema);
 
 app.post('/reservation', (req, res) => {
   const rezzy = new Reservation({
+    Table: req.body.tableID,
     Name: req.body.name,
     Time: req.body.time,
     Guest_Count: req.body.count,
