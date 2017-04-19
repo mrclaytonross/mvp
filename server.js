@@ -55,8 +55,6 @@ app.post('/reservation', (req, res) => {
 });
 
 app.get('/reservation', (req, res) => {
-  // res.send(console.log('GOTCHA DAWG'));
-  // console.log(req.query, "OMG REQ")
   var q = req.query.guest;
   console.log(q, "looking for this")
   Reservation

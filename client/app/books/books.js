@@ -6,6 +6,7 @@ angular.module('twoTopApp.books', [])
   $scope.data = {};
   $scope.books = [];
   $scope.searchResult;
+  $scope.hello = "hello"
   $scope.onSubmit = function (valid) {
     if (valid) {
       console.log('hey we submitted');
