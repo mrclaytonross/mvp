@@ -25,24 +25,26 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
 })
 
 const tableSchema = new Schema({
-  Table: String,
   Name: String,
   Time: String,
   Guest_Count: Number,
   allergies: String,
   spc_accommodations: String,
+  TableID: Number,
 });
 
 const Reservation = mongoose.model('Reservation', tableSchema);
 
+
 app.post('/reservation', (req, res) => {
+  console.log(req.body, 'THE BODY')
   const rezzy = new Reservation({
-    Table: req.body.tableID,
     Name: req.body.name,
     Time: req.body.time,
     Guest_Count: req.body.count,
     allergies: req.body.allergy,
     spc_accommodations: req.body.spc_accommodations,
+    TableID: req.body.tableID,
   }).save((err, result) => {
       if (err) {
         return console.log(err);
@@ -52,10 +54,30 @@ app.post('/reservation', (req, res) => {
   });
 });
 
+app.get('/reservation', (req, res) => {
+  // res.send(console.log('GOTCHA DAWG'));
+  // console.log(req.query, "OMG REQ")
+  var q = req.query.guest;
+  console.log(q, "looking for this")
+  Reservation
+    .find({Name:q}, function(err, data){
+      console.log(data, "THIS IS OUR DATA")
+      res.send(data);
+    })
+// (err, result) => {
+//       if (err) {
+//         return console.log(err);
+//       }
+//     console.log('serving up guest info');
+//     res.redirect('/');
+//   });
+});
+
+
 app.get(`/api/reservations`, (req, res) => {
   Reservation
     .find({}, function(err, data){
-      console.log(data, "THIS IS OUR DATA")
+      // console.log(data, "THIS IS OUR DATA")
       res.send(data);
     })
 })

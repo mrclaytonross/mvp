@@ -1,4 +1,60 @@
 <!DOCTYPE html>
 <h1>bookings</h1>
-<div>{{books}}</div>
-<div>{{hello}}</div>
+<form class="col-sm-8 col-sm-offset-2 text-center"
+      ng-submit="onSubmit(theForm.$valid)"
+      name="theForm"
+      novalidate = "novalidate">
+  <div class="form-group" ng-class="
+    {
+      'has-error':!theForm.guest.$valid && (!theForm.guest.$pristine || theForm.$submitted),
+      'has-success':theForm.guest.$valid
+    }
+  ">
+  <label for="Name" >name</label>
+    <input type="text"
+           class="form-control"
+           ng-model="formModel.Name"
+           id="name"
+           name="guest"
+           required="required">
+    <p class="help-block" ng-show="theForm.guest.$error.required && (!theForm.guest.$pristine || theForm.$submitted)">
+      this field is required
+    </p>
+
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">seach
+    </button>
+  </div>
+</form>
+
+<ul>
+  <li ng-repeat= "book in books">
+    <table>
+      <tbody><tr>
+        <th>Table {{book.TableID}}</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>Time</td>
+        <td>{{book.Time}}</td>
+      </tr>
+      <tr>
+        <td>Guest Count</td>
+        <td>{{book.Guest_Count}}</td>
+      </tr>
+      <tr>
+        <td>Guest Name</td>
+        <td>{{book.Name}}</td>
+      </tr>
+      <tr>
+        <td>Allergies</td>
+        <td>{{book.allergies}}</td>
+      </tr>
+      <tr>
+        <td>Requests</td>
+        <td>{{book.spc_accommodations}}</td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
