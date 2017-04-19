@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, '/client')));
 
 
 
-
 mongoose.connect(process.env.MONGODB,(err, database) => {
   if(err) {
     return console.log(err);
@@ -25,23 +24,22 @@ mongoose.connect(process.env.MONGODB,(err, database) => {
   })
 })
 
-app.post('/reservation', (req, res) => {
-  new Reservation({
-    Name: req.body.name,
-    Time: req.body.time,
-    Guest_Count: req.body.count,
-    allergies: req.body.allergy,
-    spc_accommodations: req.body.spc_accommodations,
-  })
-    console.log('saved to data base, BEEP BEEP');
-    res.redirect('/');
 
-});
 
+// app.post('/reservation', (req, res) => {
+//   console.log(res, "RESSSSSSS sucka");
+//   db.collection('Reservation').save(req.body, (err, result) => {
+//     if (err) {
+//       return console.log(err);
+//     }
+//     console.log('saved to data base, BEEP BEEP');
+//     res.redirect('/');
+//   });
+// });
 
 const tableSchema = new Schema({
   Name: String,
-  Time: Number,
+  Time: String,
   Guest_Count: Number,
   allergies: String,
   spc_accommodations: String,
@@ -49,7 +47,21 @@ const tableSchema = new Schema({
 
 const Reservation = mongoose.model('Reservation', tableSchema);
 
-
+app.post('/reservation', (req, res) => {
+  const rezzy = new Reservation({
+    Name: req.body.name,
+    Time: req.body.time,
+    Guest_Count: req.body.count,
+    allergies: req.body.allergy,
+    spc_accommodations: req.body.spc_accommodations,
+  }).save((err, result) => {
+      if (err) {
+        return console.log(err);
+      }
+    console.log('saved to data base, BEEP BEEP');
+    res.redirect('/');
+  });
+});
 
 app.get(`/api/reservations`, (req, res) => {
   Reservation
