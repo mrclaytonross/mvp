@@ -74,11 +74,13 @@ app.delete('/cancel', (req, res) => {
     })
 });
 
-app.put('/edit', (req, res) => {
+app.put('/reservation', (req, res) => {
+  console.log('DID THIS EVEN HAPPEN??????????')
   var q = req.query.guest;
+
   console.log(q, "looking for this")
   Reservation
-    .remove({Name:q}, function(err, data){
+    .findOneAndUpdate({Name:q}, function(err, data){
       console.log(data, "THIS IS OUR DATA")
       res.send(data);
     })

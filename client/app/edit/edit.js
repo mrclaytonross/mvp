@@ -1,11 +1,7 @@
 angular.module('twoTopApp.edit', [])
 
 .controller('editController', function ($scope, $http, Tables) {
-  $scope.formModel = {};
-  $scope.data = {};
-  $scope.books = [];
-  $scope.searchResult;
-  $scope.hello = "hello"
+  $scope.hello = 'hello';
   $scope.onSubmit = function (valid) {
     if (valid) {
       console.log('hey we submitted');
@@ -16,6 +12,13 @@ angular.module('twoTopApp.edit', [])
       })
         .success(function (data) {
           $scope.searchResult = data;
+          $scope.Name = data[0].Name;
+          $scope.Time = data[0].Time;
+          $scope.Guest_Count = data[0].Guest_Count;
+          $scope.allergies = data[0].allergies;
+          $scope.spc_accommodations = data[0].spc_accommodations;
+          $scope.TableID = data[0].TableID;
+          console.log($scope.TableID, "TABLE IDDDDD")
           console.log($scope.searchResult, "HEY THIS HAPPENED");
           console.log('great success data form input')
         }).error(function (data) {
@@ -25,13 +28,4 @@ angular.module('twoTopApp.edit', [])
       console.log('invalid form');
     }
   };
-
-  Tables.getAll()
-    .then(function (tables) {
-      $scope.data.tables = tables;
-      $scope.books = tables.data;
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
 });

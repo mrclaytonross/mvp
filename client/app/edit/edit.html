@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1>bookings</h1>
+<h1>edit a reservation</h1>
 <form class="col-sm-8 col-sm-offset-2 text-center"
       ng-submit="onSubmit(theForm.$valid)"
       name="theForm"
@@ -26,4 +26,22 @@
     <button class="btn btn-primary" type="submit">seach
     </button>
   </div>
+</form>
+
+
+
+<form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center">
+  <label>Guest Name</label><br>
+  <input type="text" placeholder="name" value="{{Name}}" name="name"><br>
+  <label>Arrival Time</label><br>
+  <input type="text" placeholder="time" value="{{Time}}" name="time"><br>
+   <label>Guest Count</label><br>
+  <input type="text" placeholder="count" value="{{Guest_Count}}" name="count"><br>
+  <label>Guest Allergies</label><br>
+  <input type="text" placeholder="allergy" value="{{allergies}}" name="allergy"><br>
+  <label>Special Accommodations</label><br>
+  <input type="text" placeholder="special accommodations" value="{{spc_accommodations}}" name="spc_accommodations"><br>
+  <label>Table ID</label><br>
+  <input type="text" placeholder="table ID" value="{{TableID}}" name="TableID"><br>
+  <button type="submit">submit</button>
 </form>
