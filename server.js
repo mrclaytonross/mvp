@@ -79,16 +79,34 @@ app.post('/update', (req, res) => {
   console.log('inside update', req.body)
   const q = req.body.name;
   Reservation
-    .findOneAndUpdate({ Name: q }, { $set: req.body }, { new: true }, (err, data) => {
-      console.log('inside update');
-      if (err) {
-        console.error(err, 'this is error in update');
-        res.send(err, 'there was an error processing your request');
-      }
-      console.warn('Update Success: ', data);
+    .remove({ Name: q }, (err, data) => {
       res.send(data);
     });
+  // Reservation
+  //   .findOneAndUpdate({ Name: q }, { $set: req.body }, { new: true }, (err, data) => {
+  //     console.log('inside update');
+  //     if (err) {
+  //       console.error(err, 'this is error in update');
+  //       res.send(err, 'there was an error processing your request');
+  //     }
+  //     console.warn('Update Success: ', data);
+  //     res.send(data);
+  //   });
 });
+// app.post('/update', (req, res) => {
+//   console.log('inside update', req.body)
+//   const q = req.body.name;
+//   Reservation
+//     .findOneAndUpdate({ Name: q }, { $set: req.body }, { new: true }, (err, data) => {
+//       console.log('inside update');
+//       if (err) {
+//         console.error(err, 'this is error in update');
+//         res.send(err, 'there was an error processing your request');
+//       }
+//       console.warn('Update Success: ', data);
+//       res.send(data);
+//     });
+// });
 
 
 app.get('/api/reservations', (req, res) => {

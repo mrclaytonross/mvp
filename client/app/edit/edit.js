@@ -29,18 +29,18 @@ angular.module('twoTopApp.edit', [])
       console.log('invalid form');
     }
   };
-  $scope.putting = function () {
-    console.log($scope.newModel, 'FUNCTION GETTTIN HIT')
-    delete $scope.newModel.searchResult;
-
-    $http({
-      url: '/update',
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      data: JSON.stringify($scope.newModel),
-    });
-    console.log('STILL HAVPPEDNING')
-  };
+  // $scope.putting = function () {
+  //   console.log($scope.newModel, 'FUNCTION GETTTIN HIT')
+  //   delete $scope.newModel.searchResult;
+  //
+  //   $http({
+  //     url: '/update',
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded',
+  //     },
+  //     data: JSON.stringify($scope.newModel),
+  //   });
+  //   console.log('STILL HAVPPEDNING')
+  // };
 });

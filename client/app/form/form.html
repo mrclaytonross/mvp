@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <h1>make a reservation</h1>
-
+<br>
+<br>
+<br>
 <form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center" >
   <div>
     <div class="container">
@@ -49,11 +51,11 @@
                   <br>
                   <label>Dietary Restrictions</label>
                     <div class="checkbox">
-                      <label><input name="allergy" type="checkbox" value="shellfish">shellfish</label>
-                      <label><input name="allergy" type="checkbox" value="nut">nut</label>
-                      <label><input name="allergy" type="checkbox" value="gluten">gluten</label>
-                      <label><input name="allergy" type="checkbox" value="vegetarian">vegetarian</label>
-                      <label><input name="allergy" type="checkbox" value="pescetarian">pescetarian</label>
+                      <label><input name="allergy" type="checkbox" value=" shellfish">shellfish</label>
+                      <label><input name="allergy" type="checkbox" value=" nut">nut</label>
+                      <label><input name="allergy" type="checkbox" value=" gluten">gluten</label>
+                      <label><input name="allergy" type="checkbox" value=" vegetarian">vegetarian</label>
+                      <label><input name="allergy" type="checkbox" value=" pescetarian">pescetarian</label>
                     </div>
                     <br>
                   <div class="form-group">
@@ -85,3 +87,7 @@
   </div>
 </div>
 </form>
+<br>
+<div>
+  {{success}}
+</div>

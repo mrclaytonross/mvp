@@ -16,6 +16,7 @@ angular.module('twoTopApp.cancel', [])
       })
         .success(function (data) {
           $scope.searchResult = data;
+          alert('cancelation success')
           console.log($scope.searchResult, "HEY THIS HAPPENED");
           console.log('great success data form input')
         }).error(function (data) {
