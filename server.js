@@ -14,8 +14,6 @@ var db;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/client')));
 
-
-
 mongoose.connect(process.env.MONGODB,(err, database) => {
   if(err) {
     return console.log(err);

@@ -1,7 +1,89 @@
 <!DOCTYPE html>
-    <h2>input guest</h2>
-<form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center">
-  <input type="text" placeholder="name" name="name"><br>
+<form action="/reservation" method="POST" class="col-sm-8 col-sm-offset-2 text-center" >
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+              <i class="icon-calendar"></i>
+              <h3 class="panel-title">input party</h3>
+            </div>
+                  <div class="panel-body">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon">host name</span>
+                      <input type="text"
+                             name="name"
+                             class="form-control input-lg"
+                             placeholder="host name">
+                    </div>
+                    <br>
+                    <br>
+                    <label>Arrival Time</label>
+                    <select id="time" name="time" class="form-control input-lg">
+                      <option value="5:30">5:30</option>
+                      <option value="6:00">6:00</option>
+                      <option value="6:30">6:30</option>
+                      <option value="7:00">7:00</option>
+                      <option value="7:30">7:30</option>
+                      <option value="8:00">8:00</option>
+                    </select>
+                    <br>
+                    <label>Guest Count</label>
+                    <select id="count" name="count" class="form-control input-lg">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  <br>
+                  <label>Dietary Restrictions</label>
+                    <div class="checkbox">
+                      <label><input name="allergy" type="checkbox" value="shellfish">shellfish</label>
+                      <label><input name="allergy" type="checkbox" value="nut">nut</label>
+                      <label><input name="allergy" type="checkbox" value="gluten">gluten</label>
+                      <label><input name="allergy" type="checkbox" value="vegetarian">vegetarian</label>
+                      <label><input name="allergy" type="checkbox" value="pescetarian">pescetarian</label>
+                    </div>
+                    <br>
+                  <div class="form-group">
+                    <label for="spc_accommodations">Special Accommodations:</label>
+                    <textarea class="form-control" rows="5" name="spc_accommodations" id="spc_accommodations"></textarea>
+                  </div>
+                  <br>
+                  <label>Table Number</label>
+                  <select id="tableID" name="tableID" class="form-control input-lg">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                  <br>
+                  <button type="submit" button class="btn btn-default">submit</button>
+                </div>
+             </div>
+           </div>
+        </div>
+  </div>
+
+  <!-- <input type="text" placeholder="name" name="name"><br>
+
   <label>Arrival Time</label>
    <select id = "time" name = "time">
      <option name = "time" value = "5:30">5:30</option>
@@ -11,6 +93,8 @@
      <option name = "time" value = "7:30">7:30</option>
      <option name = "time" value = "8:00">8:00</option>
    </select><br>
+ </div>
+ <div>
    <label>Guest Count</label>
   <select id = "count" name = "count">
     <option name = "count" value = "1">1</option>
@@ -24,13 +108,19 @@
     <option name = "count" value = "9">9</option>
     <option name = "count" value = "10">10</option>
   </select><br>
+</div>
+  <div>
   <input type="checkbox" name="allergy" value="none" checked> none<br>
   <input type="checkbox" name="allergy" value="shellfish"> shellfish<br>
   <input type="checkbox" name="allergy" value="nut"> nut<br>
   <input type="checkbox" name="allergy" value="gluten"> gluten<br>
   <input type="checkbox" name="allergy" value="vegetarian"> vegetarian<br>
   <input type="checkbox" name="allergy" value="other"> other<br>
+</div>
+<div>
   <input type="text" placeholder="special accommodations" name="spc_accommodations"><br>
+</div>
+<div>
   <label>Table ID</label>
   <select id = "tableID" name = "tableID">
     <option name = "tableID" value = "10">10</option>
@@ -40,5 +130,6 @@
     <option name = "tableID" value = "14">14</option>
     <option name = "tableID" value = "15">15</option>
   </select><br>
-  <button type="submit">submit</button>
+  <button type="submit" button class="btn btn-default">submit</button> -->
+</div>
 </form>
