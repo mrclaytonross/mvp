@@ -2,7 +2,8 @@ angular.module('twoTopApp.edit', [])
 
 .controller('editController', function ($scope, $http, Tables) {
   $scope.hello = 'hello';
-  $scope.onSubmit = function (valid) {
+  $scope.newModel = {};
+  $scope.search = function (valid) {
     if (valid) {
       console.log('hey we submitted');
       $http({
@@ -11,13 +12,13 @@ angular.module('twoTopApp.edit', [])
         params: {"guest":$scope.formModel.Name}
       })
         .success(function (data) {
-          $scope.searchResult = data;
-          $scope.Name = data[0].Name;
-          $scope.Time = data[0].Time;
-          $scope.Guest_Count = data[0].Guest_Count;
-          $scope.allergies = data[0].allergies;
-          $scope.spc_accommodations = data[0].spc_accommodations;
-          $scope.TableID = data[0].TableID;
+          $scope.newModel.searchResult = data;
+          $scope.newModel.name = data[0].Name;
+          $scope.newModel.Time = data[0].Time;
+          $scope.newModel.Guest_Count = data[0].Guest_Count;
+          $scope.newModel.allergies = data[0].allergies;
+          $scope.newModel.spc_accommodations = data[0].spc_accommodations;
+          $scope.newModel.TableID = data[0].TableID;
           console.log($scope.TableID, "TABLE IDDDDD")
           console.log($scope.searchResult, "HEY THIS HAPPENED");
           console.log('great success data form input')
@@ -27,5 +28,14 @@ angular.module('twoTopApp.edit', [])
     } else {
       console.log('invalid form');
     }
+  };
+  $scope.putting = function () {
+    console.log($scope.newModel, 'FUNCTION GETTTIN HIT')
+    $http({
+      url: '/reservation',
+      method: 'POST',
+      data: $scope.newModel,
+    });
+    console.log('STILL HAVPPEDNING')
   };
 });

@@ -56,10 +56,11 @@ app.post('/reservation', (req, res) => {
 
 app.get('/reservation', (req, res) => {
   var q = req.query.guest;
+  console.log(req.body, "METHOD RECKONING");
   console.log(q, "looking for this")
   Reservation
     .find({Name:q}, function(err, data){
-      console.log(data, "THIS IS OUR DATA")
+      console.log(data, "THIS IS OUR GET DATA")
       res.send(data);
     })
 });
@@ -69,19 +70,17 @@ app.delete('/cancel', (req, res) => {
   console.log(q, "looking for this")
   Reservation
     .remove({Name:q}, function(err, data){
-      console.log(data, "THIS IS OUR DATA")
+      console.log(data, "THIS IS OUR DELETE DATA")
       res.send(data);
     })
 });
 
-app.put('/reservation', (req, res) => {
-  console.log('DID THIS EVEN HAPPEN??????????')
-  var q = req.query.guest;
 
-  console.log(q, "looking for this")
+app.put('/update', (req, res) => {
+  //console.log(req, "DATAbodyIN OUR PUUUUUUUUUUT")
+  let q = req;
   Reservation
     .findOneAndUpdate({Name:q}, function(err, data){
-      console.log(data, "THIS IS OUR DATA")
       res.send(data);
     })
 });
