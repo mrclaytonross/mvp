@@ -29,18 +29,110 @@
 
 
 
-<form class="col-sm-8 col-sm-offset-2 text-center" method="POST" action="/update">
+
+
+
+
+
+
+<!-- <form class="col-sm-8 col-sm-offset-2 text-center" method="POST" action="/update">
   <label>Guest Name</label><br>
-  <input type="text" placeholder="name" name="Name" ng-model="newModel.name"><br>
-  <label>Arrival Time</label><br>
-  <input type="text" placeholder="time" name="Time" ng-model="newModel.Time"><br>
-   <label>Guest Count</label><br>
-  <input type="text" placeholder="count" name="Guest_Count" ng-model="newModel.Guest_Count"><br>
-  <label>Guest Allergies</label><br>
-  <input type="text" placeholder="allergy" name="allergies" ng-model="newModel.allergies"><br>
-  <label>Special Accommodations</label><br>
-  <input type="text" placeholder="special accommodations" name="spc_accommodations" ng-model="newModel.spc_accommodations"><br>
-  <label>Table ID</label><br>
+  <input type="text" placeholder="name" name="Name" ng-model="newModel.name"><br> -->
+  <!-- <label>Arrival Time</label><br>
+  <input type="text" placeholder="time" name="Time" ng-model="newModel.Time"><br> -->
+   <!-- <label>Guest Count</label><br>
+  <input type="text" placeholder="count" name="Guest_Count" ng-model="newModel.Guest_Count"><br> -->
+  <!-- <label>Guest Allergies</label><br>
+  <input type="text" placeholder="allergy" name="allergies" ng-model="newModel.allergies"><br> -->
+  <!-- <label>Special Accommodations</label><br>
+  <input type="text" placeholder="special accommodations" name="spc_accommodations" ng-model="newModel.spc_accommodations"><br> -->
+  <!-- <label>Table ID</label><br>
   <input type="text" placeholder="table ID" name="TableID" ng-model="newModel.TableID"><br>
   <button type="submit">submit</button>
+</form>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<form action="/update" method="POST" class="col-sm-8 col-sm-offset-2 text-center" >
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+              <i class="icon-calendar"></i>
+              <h3 class="panel-title">input party</h3>
+            </div>
+                  <div class="panel-body">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon">host name</span>
+                      <input type="text"
+                             name="Name"
+                             ng-model="newModel.name"
+                             class="form-control input-lg"
+                             placeholder="host name">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon">arrival time</span>
+                      <input type="text"
+                             name="Time"
+                             ng-model="newModel.Time"
+                             class="form-control input-lg"
+                             placeholder="time">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon">guest count</span>
+                      <input type="text"
+                             name="Guest_Count"
+                             ng-model="newModel.Guest_Count"
+                             class="form-control input-lg"
+                             placeholder="count">
+                    </div>
+
+                  <br>
+
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon">dietary restrictions</span>
+                    <input type="text"
+                           name="allergies"
+                           ng-model="newModel.allergies"
+                           class="form-control input-lg"
+                           placeholder="allergy">
+                  </div>
+                    <br>
+                  <div class="form-group">
+                    <label for="spc_accommodations">Special Accommodations:</label>
+                    <textarea class="form-control" rows="5" name="spc_accommodations" id="spc_accommodations" ng-model="newModel.spc_accommodations"></textarea>
+                  </div>
+                  <br>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon">Table ID</span>
+                    <input type="text"
+                           name="TableID"
+                           ng-model="newModel.TableID"
+                           class="form-control input-lg"
+                           placeholder="table number">
+                  </div>
+                  <br>
+                  <button type="submit" button class="btn btn-default">submit</button>
+                </div>
+             </div>
+           </div>
+        </div>
+  </div>
+</div>
 </form>
