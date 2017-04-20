@@ -19,6 +19,8 @@ angular.module('twoTopApp.edit', [])
           $scope.newModel.allergies = data[0].allergies;
           $scope.newModel.spc_accommodations = data[0].spc_accommodations;
           $scope.newModel.TableID = data[0].TableID;
+          $scope.newModel.id = data[0]._id;
+          console.log($scope.newModel.id, "CLLLLLAAAAAAYYYYYY")
           console.log($scope.TableID, "TABLE IDDDDD")
           console.log($scope.searchResult, "HEY THIS HAPPENED");
           console.log('great success data form input')

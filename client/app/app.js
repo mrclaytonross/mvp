@@ -2,6 +2,10 @@ const App = angular.module('twoTopApp', ['twoTopApp.form', 'ngRoute', 'twoTopApp
 
 App.config(function ($routeProvider, $httpProvider) {
   $routeProvider
+    .when('/update', {
+      templateUrl: 'app/form/form.html',
+      controller: 'formController',
+    })
     .when('/form', {
       templateUrl: 'app/form/form.html',
       controller: 'formController',
