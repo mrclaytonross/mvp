@@ -105,7 +105,7 @@ app.post('/update', (req, res) => {
         res.send(err, 'there was an error processing your request');
       }
       console.warn('Update Success: ', data);
-      res.send(data);
+      res.redirect('#/books');
     });
 });
 
