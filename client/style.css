@@ -1,0 +1,23 @@
+.navbar-default .navbar-fnt {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-backgrnd {
+    color: #CC3333;
+}
+
+nav {
+  list-style: none;
+  margin: 0 2px;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+h1{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}

@@ -1,3 +1,5 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
 const express = require('express');
 const env = require('dotenv').config();
 const PORT = process.env.PORT;
@@ -55,46 +57,48 @@ app.post('/reservation', (req, res) => {
 });
 
 app.get('/reservation', (req, res) => {
-  var q = req.query.guest;
-  console.log(req.method, "METHOD RECKONING");
-  console.log(q, "looking for this")
+  const q = req.query.guest;
   Reservation
-    .find({Name:q}, function(err, data){
-      console.log(data, "THIS IS OUR GET DATA")
+    .find({ Name: q }, (err, data) => {
+      if (err) {
+        console.error('there was an error', err);
+        res.send(err);
+      }
       res.send(data);
-    })
+    });
 });
 
 app.delete('/cancel', (req, res) => {
-  var q = req.query.guest;
-  console.log(q, "looking for this")
+  const q = req.query.guest;
+  console.log(q, 'this is guest');
   Reservation
-    .remove({Name:q}, function(err, data){
-      console.log(data, "THIS IS OUR DELETE DATA")
+    .remove({ Name: q }, (err, data) => {
       res.send(data);
-    })
+    });
 });
-//
-// app.put('/update', (req, res) => {
-//   console.log(req.data, "DATA IN OUR PUUUUUUUUUUT")
-//   console.log(req., "DATA IN OUR PUUUUUUUUUUT")
-//   // let q = req.data[0];
-//   console.log(q, 'this is Q')
-//   Reservation
-//     .findOneAndUpdate({Name:q}, function(err, data){
-//       console.log(data, "THIS IS OUR DATA MMMMMMMMAN")
-//       res.send(data);
-//     })
-// });
 
-
-app.get(`/api/reservations`, (req, res) => {
+app.post('/update', (req, res) => {
+  console.log('inside update', req.body)
+  const q = req.body.name;
   Reservation
-    .find({}, function(err, data){
-      // console.log(data, "THIS IS OUR DATA")
+    .findOneAndUpdate({ Name: q }, { $set: req.body }, { new: true }, (err, data) => {
+      console.log('inside update');
+      if (err) {
+        console.error(err, 'this is error in update');
+        res.send(err, 'there was an error processing your request');
+      }
+      console.warn('Update Success: ', data);
       res.send(data);
-    })
-})
+    });
+});
+
+
+app.get('/api/reservations', (req, res) => {
+  Reservation
+    .find({}, (err, data) => {
+      res.send(data);
+    });
+});
 
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/client/index.html`);

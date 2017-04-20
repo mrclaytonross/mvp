@@ -29,15 +29,15 @@
 
 
 
-<form class="col-sm-8 col-sm-offset-2 text-center" ng-submit="putting()">
+<form class="col-sm-8 col-sm-offset-2 text-center" method="POST" action="/update">
   <label>Guest Name</label><br>
-  <input type="text" placeholder="name" name="name" ng-model="newModel.name"><br>
+  <input type="text" placeholder="name" name="Name" ng-model="newModel.name"><br>
   <label>Arrival Time</label><br>
-  <input type="text" placeholder="time" name="time" ng-model="newModel.Time"><br>
+  <input type="text" placeholder="time" name="Time" ng-model="newModel.Time"><br>
    <label>Guest Count</label><br>
-  <input type="text" placeholder="count" name="count" ng-model="newModel.Guest_Count"><br>
+  <input type="text" placeholder="count" name="Guest_Count" ng-model="newModel.Guest_Count"><br>
   <label>Guest Allergies</label><br>
-  <input type="text" placeholder="allergy" name="allergy" ng-model="newModel.allergies"><br>
+  <input type="text" placeholder="allergy" name="allergies" ng-model="newModel.allergies"><br>
   <label>Special Accommodations</label><br>
   <input type="text" placeholder="special accommodations" name="spc_accommodations" ng-model="newModel.spc_accommodations"><br>
   <label>Table ID</label><br>
