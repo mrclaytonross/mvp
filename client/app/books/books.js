@@ -31,6 +31,7 @@ angular.module('twoTopApp.books', [])
     .then(function (tables) {
       $scope.data.tables = tables;
       $scope.books = tables.data;
+      $scope.amount = $scope.books.length;
     })
     .catch(function (error) {
       console.error(error);

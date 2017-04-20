@@ -45,12 +45,15 @@ app.post('/reservation', (req, res) => {
     allergies: req.body.allergy,
     spc_accommodations: req.body.spc_accommodations,
     TableID: req.body.tableID,
-  }).save((err, result) => {
+  })
+  
+
+  rezzy.save((err, result) => {
       if (err) {
         return console.log(err);
       }
     console.log('saved to data base, BEEP BEEP');
-    res.redirect('/');
+    res.redirect('/books#/books');
   });
 });
 
