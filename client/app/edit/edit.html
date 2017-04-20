@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <h1>edit a reservation</h1>
-<form class="col-sm-8 col-sm-offset-2 text-center"
+<div class="col-sm-8 col-sm-offset-2 text-center">
+<form class="col-md-6 col-sm-6 col-xs-12"
       name="theForm"
       novalidate = "novalidate">
   <div class="form-group" ng-class="
@@ -22,46 +23,11 @@
 
   </div>
   <div class="form-group">
-    <button class="btn btn-primary" ng-click="search(theForm)" type="submit">search
+    <button class="btn btn-default" ng-click="search(theForm)" type="submit">search
     </button>
   </div>
 </form>
-
-
-
-
-
-
-
-
-
-<!-- <form class="col-sm-8 col-sm-offset-2 text-center" method="POST" action="/update">
-  <label>Guest Name</label><br>
-  <input type="text" placeholder="name" name="Name" ng-model="newModel.name"><br> -->
-  <!-- <label>Arrival Time</label><br>
-  <input type="text" placeholder="time" name="Time" ng-model="newModel.Time"><br> -->
-   <!-- <label>Guest Count</label><br>
-  <input type="text" placeholder="count" name="Guest_Count" ng-model="newModel.Guest_Count"><br> -->
-  <!-- <label>Guest Allergies</label><br>
-  <input type="text" placeholder="allergy" name="allergies" ng-model="newModel.allergies"><br> -->
-  <!-- <label>Special Accommodations</label><br>
-  <input type="text" placeholder="special accommodations" name="spc_accommodations" ng-model="newModel.spc_accommodations"><br> -->
-  <!-- <label>Table ID</label><br>
-  <input type="text" placeholder="table ID" name="TableID" ng-model="newModel.TableID"><br>
-  <button type="submit">submit</button>
-</form>
- -->
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <!DOCTYPE html>
 <form action="/update" method="POST" class="col-sm-8 col-sm-offset-2 text-center" >
@@ -81,7 +47,7 @@
                              name="Name"
                              ng-model="newModel.name"
                              class="form-control input-lg"
-                             placeholder="host name">
+                             placeholder="">
                     </div>
                     <br>
                     <br>
@@ -91,7 +57,7 @@
                              name="Time"
                              ng-model="newModel.Time"
                              class="form-control input-lg"
-                             placeholder="time">
+                             placeholder="">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
@@ -100,7 +66,7 @@
                              name="Guest_Count"
                              ng-model="newModel.Guest_Count"
                              class="form-control input-lg"
-                             placeholder="count">
+                             placeholder="">
                     </div>
 
                   <br>
@@ -111,7 +77,7 @@
                            name="allergies"
                            ng-model="newModel.allergies"
                            class="form-control input-lg"
-                           placeholder="allergy">
+                           placeholder="">
                   </div>
                     <br>
                   <div class="form-group">
@@ -125,7 +91,7 @@
                            name="TableID"
                            ng-model="newModel.TableID"
                            class="form-control input-lg"
-                           placeholder="table number">
+                           placeholder="">
                   </div>
                   <br>
                   <button type="submit" button class="btn btn-default">submit</button>
